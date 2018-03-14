@@ -1,0 +1,29 @@
+## YAML Template.
+---
+spring:
+    main:
+        show-banner: false
+    application:
+        name : product-service
+
+logging.level.jdbc: OFF
+logging:
+    level:
+        jdbc: 
+            sqltiming: DEBUG
+            resultsettable: DEBUG
+
+server:
+    port: 8080
+   
+    
+
+eureka.instance.leaseRenewalIntervalInSeconds: 10
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://127.0.0.1:8761/eureka/
+    instance:
+        leaseRenewalIntervalInSeconds:
+            metadataMap:
+                instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}:${random.value}}
