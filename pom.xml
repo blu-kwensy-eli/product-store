@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.projects</groupId>
-        <artifactId>supcook</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
+    
     <groupId>com.protech.apps</groupId>
     <artifactId>product-store</artifactId>
     <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>us-product</module>
+        <module>us-product-details</module>
+        <module>us-product-pricing</module>
+        <module>us-product-reverseproxy</module>
+        <module>us-product-server</module>
+    </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
