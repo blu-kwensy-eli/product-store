@@ -12,8 +12,54 @@
         <module>us-product-pricing</module>
         <module>us-product-reverseproxy</module>
         <module>us-product-server</module>
+        <module>us-product-common-swagger</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <!--sans cette option le plugin allait s'exécuter pour chacun des modules-->
+                        <inherited>false</inherited>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            
+                            <target>
+<!--                                <property name="compile_classpath" refid="maven.compile.classpath"/>
+                                <property name="runtime_classpath" refid="maven.runtime.classpath"/>
+                                <property name="test_classpath" refid="maven.test.classpath"/>
+                                <property name="plugin_classpath" refid="maven.plugin.classpath"/>
+                
+                                <echo message="${compile_classpath}"/>
+                                <echo message="${runtime_classpathh}"/>
+                                <echo message="${test_classpath}"/>
+                                <echo message="${plugin_classpath}"/>
+                                
+                                <java jar="${com.protech.apps:us-product-server:jar:1.0-SNAPSHOT}" fork="true">
+                                    <classpath  refid="maven.compile.classpath" />
+                                    <classpath  refid="maven.runtime.classpath" />
+                                </java>-->
+                                
+                                <echo message="Launching service registry ..." />
+                                <java jar="us-product-server/target/us-product-server-1.0-SNAPSHOT.jar" fork="true"/>
+                                
+                                <echo message="Launching first microservice ..." />
+                                <java jar="us-product/target/us-product-1.0-SNAPSHOT.jar" fork="true"/>
+                            </target>
+                        </configuration>
+                       
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

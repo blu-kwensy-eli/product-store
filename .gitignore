@@ -26,3 +26,4 @@ hs_err_pid
 *nbactions.xml
 *.gitkeep
 */.gitignore
+/target/

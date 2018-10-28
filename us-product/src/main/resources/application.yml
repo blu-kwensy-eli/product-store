@@ -5,7 +5,24 @@ spring:
         show-banner: false
     application:
         name : product-service
-
+        
+#configuration de source de données
+    datasource:
+        username: root
+        password: root
+        url: jdbc:mysql://localhost:3306/product
+        driver-class-name: com.mysql.jdbc.Driver
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect:
+                    org.hibernate.dialect.MySQL5Dialect
+            
+        
+        
 logging.level.jdbc: OFF
 logging:
     level:
@@ -16,7 +33,6 @@ logging:
 server:
     port: 8080
    
-    
 
 eureka.instance.leaseRenewalIntervalInSeconds: 10
 eureka:
@@ -27,3 +43,9 @@ eureka:
         leaseRenewalIntervalInSeconds:
             metadataMap:
                 instanceId: ${spring.application.name}:${spring.application.instance_id:${server.port}:${random.value}}
+                
+
+                
+                
+                
+     
